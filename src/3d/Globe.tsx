@@ -3,8 +3,8 @@ import {useLoader} from '@react-three/fiber';
 
 const Globe = () => {
 
-    const gltf = useLoader(GLTFLoader, '/teapot.gltf')
-    return <primitive object={gltf.scene} />
+    const gltf = useLoader(GLTFLoader, '/sphere.gltf')
+    return <primitive  object={gltf.scene} />
 };
 
 export default Globe;
