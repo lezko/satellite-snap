@@ -1,25 +1,30 @@
-import React from 'react';
+import {store} from 'store';
+import {StrictMode} from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-import reportWebVitals from './reportWebVitals';
+import * as serviceWorkerRegistration from 'pwa/serviceWorkerRegistration';
+import {RouterProvider} from 'react-router-dom';
+import {Provider} from 'react-redux';
+import GlobalStyle from 'components/style/GlobalStyle';
+import AntdConfig from 'components/style/AntdConfig';
+import {theme} from 'AppTheme';
+import {ThemeProvider} from 'styled-components';
+import {router} from 'router/router';
+
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+    document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <StrictMode>
+        <ThemeProvider theme={theme}>
+            <AntdConfig>
+                <Provider store={store}>
+                    <GlobalStyle />
+                    <RouterProvider router={router} />
+                </Provider>
+            </AntdConfig>
+        </ThemeProvider>
+    </StrictMode>
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://cra.link/PWA
 serviceWorkerRegistration.unregister();
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

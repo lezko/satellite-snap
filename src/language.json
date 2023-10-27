@@ -1,0 +1,11 @@
+{
+  "title": "GeoSnap",
+  "slogan": "Easy way to explore the Earth",
+  "navbar": {
+    "home": "home",
+    "snaps": "snaps",
+    "signIn": "sign in",
+    "signUp": "sign up",
+    "dashboard": "dashboard"
+  }
+}
